@@ -10,8 +10,7 @@ rule get_genome:
         release=config["ref"]["release"],
     cache: True
     wrapper:
-        "0.74.0/bio/reference/ensembl-sequence"
-
+        "https://github.com/user-tq/dna-seq-gatk-variant-calling/raw/rewrp/bio/reference/ensembl-sequence"
 
 checkpoint genome_faidx:
     input:
@@ -53,9 +52,8 @@ rule get_known_variation:
         release=config["ref"]["release"],
         type="all",
     cache: True
-    wrapper:
-        "0.74.0/bio/reference/ensembl-variation"
-
+    wrapper:#"https://github.com/snakemake/snakemake-wrappers/raw/0.2.0/bio
+        "https://github.com/user-tq/dna-seq-gatk-variant-calling/raw/rewrp/bio/reference/ensembl-variation"
 
 rule remove_iupac_codes:
     input:
